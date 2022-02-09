@@ -8,11 +8,10 @@ module ApiV0
 
       def authenticate!
         check_token!
-        token
+		@token
       end
 
       def token
-		put "call token!"
         @token = ApiAccessToken.joins(:user).where(key: @request.headers["Token"]).where("expired_time > ?", Time.now.utc).first
       end
 

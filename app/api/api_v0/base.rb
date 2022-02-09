@@ -7,5 +7,7 @@ module ApiV0
 	helpers ::ApiV0::Helpers
 
     mount Ping
+	mount Login
+	mount Signup
   end
 end
