@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   has_many :api_access_tokens
   
+  def isAdmin?
+    self.role == "admin"
+  end
 end
