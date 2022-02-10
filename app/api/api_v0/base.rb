@@ -9,5 +9,6 @@ module ApiV0
     mount Ping
 	mount Login
 	mount Signup
+	mount Lessons
   end
 end

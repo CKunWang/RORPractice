@@ -44,19 +44,25 @@ module ApiV0
   
   class LoginError < Error
     def initialize
-      super code: 2002, text: 'email or password wrong', status: 401
+      super code: 2002, text: 'Email or password wrong', status: 401
     end
   end
   
   class DuplicateEmailError < Error
     def initialize
-      super code: 2003, text: 'sign up email duplicate', status: 401
+      super code: 2003, text: 'Sign up with duplicate email', status: 500
     end
   end
   
   class InvaildSignupError < Error
     def initialize
-      super code: 2004, text: 'sign up with invalid data', status: 401
+      super code: 2004, text: 'Sign up with invalid data', status: 500
+    end
+  end
+  
+  class DuplicateLessonError < Error
+    def initialize
+      super code: 2005, text: 'Duplicate lesson', status: 500
     end
   end
 

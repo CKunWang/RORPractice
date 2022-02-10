@@ -6,7 +6,7 @@ module ApiV0
     end
 
     def authenticate_admin!
-      current_user.isAdmin? or raise AuthorizationError
+      authenticate!.isAdmin? or raise AuthorizationError
     end
 
     def current_user
