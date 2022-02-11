@@ -9,14 +9,12 @@ module ApiV0
     end
     post "/signup/user" do
 
-      raise DuplicateEmailError unless User.where(:email => params[:email]).blank?
+      raise DuplicateEmailError if User.has_duplicate_user? (params[:email])
 
       user = User.create!( :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation], :role=>'user')
 
     rescue ActiveRecord::RecordInvalid => e
-      puts e.inspect
-      p e.message
-      raise InvaildSignupError      
+      raise InvaildSignupError
 
     end
 
