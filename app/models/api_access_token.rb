@@ -3,6 +3,10 @@ class ApiAccessToken < ApplicationRecord
 	
 	before_create :generate_keys
 	
+	def self.get_available_token (token)
+	  self.joins(:user).where(key: token).where("expired_time > ?", Time.now.utc).first
+	end
+	
 	private
 	
 	def generate_keys

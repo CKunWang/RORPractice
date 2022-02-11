@@ -12,7 +12,7 @@ module ApiV0
       end
 
       def token
-        @token = ApiAccessToken.joins(:user).where(key: @request.headers["Token"]).where("expired_time > ?", Time.now.utc).first
+        @token = ApiAccessToken.get_available_token(@request.headers["Token"])
       end
 
       def check_token!

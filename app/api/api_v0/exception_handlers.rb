@@ -65,5 +65,11 @@ module ApiV0
       super code: 2005, text: 'Duplicate lesson', status: 500
     end
   end
+  
+  class InvalidDbOperationError < Error
+    def initialize
+      super code: 2006, text: 'Invalid db operation', status: 500
+    end
+  end
 
 end
