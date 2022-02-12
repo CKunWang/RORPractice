@@ -5,13 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :api_access_tokens
+  has_many :lesson_transactions
+  has_many :lessons, :through => :lesson_transactions
   
   def self.find_user(email)
 	user = find_by(email: email)
   end
   
   def self.has_duplicate_user?(email)
-    !find_user(email).blank?
+    find_user(email).present?
   end
   
   def self.validate_user (email, password)

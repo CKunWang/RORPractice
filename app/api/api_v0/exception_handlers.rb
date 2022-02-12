@@ -71,5 +71,17 @@ module ApiV0
       super code: 2006, text: 'Invalid db operation', status: 500
     end
   end
+  
+  class LessonNotFoundError < Error
+    def initialize
+      super code: 2007, text: 'Lesson not found', status: 404
+    end
+  end
+  
+  class DuplicateTransactionError < Error
+    def initialize
+      super code: 2008, text: 'Duplicate lesson transaction', status: 404
+    end
+  end
 
 end
