@@ -10,5 +10,6 @@ module ApiV0
 	mount Login
 	mount Signup
 	mount Lessons
+	mount LessonTransactions
   end
 end
