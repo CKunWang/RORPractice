@@ -48,7 +48,7 @@ RAILS_ENV=production rake db:migrate
 
 If your want to create admin role, you can edit `db/seeds.rb` and create admin role
 
-(Because I use `devise` gem, email must be email format, password's length must over 8 )
+(Because I use `devise` gem, **email must be email format, password's length must over 8** )
 ```
 User.create! :email => 'admin@gmail.com', :password => '123456789', :password_confirmation => '123456789', :role=>'admin'
 ```
