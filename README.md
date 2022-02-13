@@ -8,7 +8,7 @@ This is an api that offer a platform for online lesson transaction.
 - Rails 5.0.7.2
 - ruby 2.6.6p146
 
-##### Initial to do 
+##### Initialize
 Create your `databse.yml` to connect your database
 ```
 touch config/database.yml
@@ -58,3 +58,23 @@ Then run `rake db:seed` to create role
 Now, we have done the initial setting
 
 Use `rails s -e production` to start server
+
+## Offered apis
+
+`POST /api/v0/login` offered user login function
+```
+curl -d "email=user_mail&password=user_password" -X POST http://localhost:3000/api/v0/login
+```
+return user_token
+
+
+`POST /api/v0/signup/user` offer user sign up
+```
+curl -d "email=user_mail&password=user_password&password_confirmation=user_password" -X POST http://localhost:3000/api/v0/signup/user
+```
+return user_token
+
+
+`GET /api/v0/lessons` allow admin get all lessons
+```
+
