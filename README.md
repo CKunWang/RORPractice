@@ -75,6 +75,38 @@ curl -d "email=user_mail&password=user_password&password_confirmation=user_passw
 return user_token
 
 
-`GET /api/v0/lessons` allow admin get all lessons
+`POST /api/v0/lessons` allow admin new lesson
+```
+curl -H "Token: token" -d "subject=subject&currency=currency&price=price&lesson_type=lesson_type&is_available=is_available&url=url&description=description&expired_days=expired_days" -X POST http://localhost:3000/api/v0/lessons
 ```
 
+`GET /api/v0/lessons` allow admin get all lessons
+```
+curl -H "Token: token" -X GET http://localhost:3000/api/v0/lessons
+```
+
+`PUT /api/v0/lessons/{lesson_id}` allow admin update lesson
+```
+curl -H "Token: token" -d "subject=subject&currency=currency&price=price&lesson_type=lesson_type&is_available=is_available&url=url&description=description&expired_days=expired_days" -X PUT http://localhost:3000/api/v0/lessons/{lesson_id}
+```
+
+`DELETE /api/v0/lessons/{lesson_id}` allow admin delete lesson
+```
+curl -H "Token: token" -X DELETE http://localhost:3000/api/v0/lessons/{lesson_id}
+```
+
+
+`GET /api/v0/lessons/available` allow user get available lesson list
+```
+curl -H "Token: token" -X GET http://localhost:3000/api/v0/lessons/available
+```
+
+`POST /api/v0/lessons/{lesson_id}/purchase` allow user purchase lesson
+```
+curl -H "Token: token" -X POST http://localhost:3000/api/v0/lessons/{lesson_id}/purchase
+```
+
+`GET /api/v0/lessons/purchased` allow user get purchased records
+```
+curl -H "Token: token" -d "lesson_type=lesson_type&available=available" -X GET http://localhost:3000/api/v0/lessons/purchased
+```
